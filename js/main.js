@@ -142,7 +142,8 @@
 
   /* ── product card tap-to-swap (touch) ───────────── */
   document.querySelectorAll(".card").forEach((card) => {
-    card.addEventListener("click", () => {
+    card.addEventListener("click", (e) => {
+      if (e.target.closest("a")) return; // let Order links act without flipping
       if (window.matchMedia("(hover: none)").matches) card.classList.toggle("swap");
     });
   });

@@ -271,6 +271,7 @@ h2.light em { color: var(--sun); }
 .scroll-cue {
   position: absolute; bottom: 4.6rem; left: 50%; transform: translateX(-50%);
   width: 26px; height: 42px; border: 2px solid rgba(255,255,255,.5); border-radius: 999px;
+  display: none;
 }
 .scroll-cue span {
   position: absolute; top: 7px; left: 50%; margin-left: -2px;
@@ -282,20 +283,21 @@ h2.light em { color: var(--sun); }
 .marquee {
   position: absolute; bottom: 0; left: 0; right: 0;
   background: var(--indigo-ink);
-  padding: .65rem 0;
+  padding: .7rem 0;
   overflow: hidden;
-  transform: rotate(-1.2deg) scale(1.02);
-  transform-origin: center;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
 .marquee-track {
   display: flex; width: max-content;
-  animation: scrollX 26s linear infinite;
+  animation: scrollX 30s linear infinite;
 }
 .marquee-track span {
   font-family: "Fredoka", "Padauk", sans-serif;
   font-size: 1.05rem; font-weight: 500;
-  color: #bdbcd8; white-space: nowrap;
+  color: #cbcae2; white-space: nowrap;
 }
+.marquee-track span::selection { background: var(--sun); }
 @keyframes scrollX { to { transform: translateX(-50%); } }
 
 /* ───────────────────────── story ───────────────────────── */
@@ -357,10 +359,11 @@ h2.light em { color: var(--sun); }
 /* ───────────────────────── collection ───────────────────────── */
 .collection { position: relative; padding: clamp(4.5rem, 10vw, 7.5rem) 0; background: var(--white); overflow: hidden; }
 .collection-watermark {
-  position: absolute; top: 2rem; right: -6rem;
-  width: min(52vw, 520px); opacity: .5;
+  position: absolute; top: 6rem; right: -7rem;
+  width: min(46vw, 460px); opacity: .28;
   mix-blend-mode: multiply; pointer-events: none;
 }
+@media (max-width: 760px) { .collection-watermark { display: none; } }
 .cards {
   margin-top: 2.6rem;
   display: grid; grid-template-columns: repeat(3, 1fr);
@@ -392,13 +395,29 @@ h2.light em { color: var(--sun); }
 .card-body { padding: 1.25rem 1.35rem 1.5rem; }
 .card-body h3 { font-size: 1.28rem; font-weight: 600; color: var(--indigo-ink); }
 .card-body p { margin-top: .35rem; font-size: .95rem; color: var(--muted); }
-.dots { list-style: none; display: flex; gap: .45rem; margin-top: .85rem; }
+.card-foot {
+  margin-top: 1.1rem;
+  display: flex; align-items: center; justify-content: space-between; gap: .8rem;
+}
+.dots { list-style: none; display: flex; gap: .45rem; }
 .dots li {
   width: 18px; height: 18px; border-radius: 50%;
   background: var(--c); border: 2px solid #d9d8ea;
   transition: transform .4s var(--spring);
 }
 .dots li:hover { transform: scale(1.3); }
+.card-cta {
+  flex: none;
+  display: inline-flex; align-items: center; gap: .35em;
+  font-family: "Fredoka", sans-serif; font-weight: 600; font-size: .92rem;
+  color: var(--indigo); text-decoration: none;
+  background: var(--lav);
+  padding: .5em 1.05em; border-radius: 999px;
+  transition: transform .45s var(--spring), background .3s, color .3s;
+}
+.card-cta span { transition: transform .4s var(--spring); }
+.card-cta:hover { background: var(--sun); color: #3a2410; transform: translateY(-2px); }
+.card-cta:hover span { transform: translateX(4px); }
 
 .inside-title {
   margin-top: 3.6rem;
@@ -481,6 +500,23 @@ h2.light em { color: var(--sun); }
 .tile img { width: 100%; transition: transform .8s var(--spring); }
 .tile:hover img { transform: scale(1.05); }
 .tile.hide { display: none; }
+
+.shop-look {
+  margin-top: 2.6rem;
+  background: linear-gradient(120deg, var(--indigo) 0%, var(--indigo-deep) 100%);
+  color: var(--white);
+  border-radius: var(--radius);
+  padding: 1.7rem 2rem;
+  display: flex; flex-wrap: wrap; gap: 1.1rem;
+  align-items: center; justify-content: space-between;
+  box-shadow: var(--shadow);
+}
+.shop-look p { font-family: "Fredoka", sans-serif; font-size: 1.4rem; font-weight: 600; }
+.shop-look > div { display: flex; gap: .8rem; flex-wrap: wrap; }
+.shop-look .btn-indigo { background: var(--sun); color: #3a2410; box-shadow: none; }
+.shop-look .btn-indigo:hover { background: var(--sun-deep); color: #fff; }
+.shop-look .btn-ghost-dark { border-color: rgba(255,255,255,.55); color: #fff; }
+.shop-look .btn-ghost-dark:hover { background: rgba(255,255,255,.12); }
 .tile::after {
   content: "⤢";
   position: absolute; right: .8rem; bottom: .7rem;
