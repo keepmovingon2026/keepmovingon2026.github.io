@@ -37,7 +37,64 @@
   }, { passive: true });
   onScroll();
 
-  toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" }));
+  /* ── velocity smooth scrolling (desktop wheel lerp) ── */
+  const finePointer = window.matchMedia("(pointer: fine)").matches;
+  let lerpTo = null; // set when the engine is active
+
+  if (finePointer && !reduceMotion) {
+    let target = window.scrollY;
+    let current = window.scrollY;
+    let raf = null;
+    const maxScroll = () => document.documentElement.scrollHeight - window.innerHeight;
+
+    const loop = () => {
+      current += (target - current) * 0.095;
+      if (Math.abs(target - current) < 0.5) {
+        current = target;
+        window.scrollTo(0, current);
+        raf = null;
+        return;
+      }
+      window.scrollTo(0, current);
+      raf = requestAnimationFrame(loop);
+    };
+    const kick = () => { if (raf === null) raf = requestAnimationFrame(loop); };
+
+    window.addEventListener("wheel", (e) => {
+      if (e.ctrlKey || document.body.style.overflow === "hidden") return; // zoom / lightbox / menu
+      e.preventDefault();
+      const d = e.deltaMode === 1 ? e.deltaY * 16 : e.deltaY;
+      target = Math.max(0, Math.min(maxScroll(), target + d));
+      kick();
+    }, { passive: false });
+
+    // resync when scrolled by scrollbar, keyboard or touch
+    window.addEventListener("scroll", () => {
+      if (raf === null) { target = current = window.scrollY; }
+    }, { passive: true });
+
+    document.documentElement.style.scrollBehavior = "auto";
+    lerpTo = (y) => { target = Math.max(0, Math.min(maxScroll(), y)); kick(); };
+  }
+
+  /* anchor links glide through the engine when it's active */
+  document.querySelectorAll('a[href^="#"]').forEach((a) => {
+    a.addEventListener("click", (e) => {
+      if (!lerpTo) return; // native smooth scroll handles it
+      const id = a.getAttribute("href").slice(1);
+      const el = id && document.getElementById(id);
+      if (!el) return;
+      e.preventDefault();
+      const y = el.getBoundingClientRect().top + window.scrollY - 60;
+      lerpTo(y);
+      history.pushState(null, "", "#" + id);
+    });
+  });
+
+  toTop.addEventListener("click", () => {
+    if (lerpTo) { lerpTo(0); return; }
+    window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+  });
 
   /* ── mobile menu ────────────────────────────────── */
   const burger = document.getElementById("burger");
