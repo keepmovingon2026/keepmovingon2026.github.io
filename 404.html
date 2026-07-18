@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lost the path? — Keep Moving On · ဆက်လျှောက်</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#575775">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Padauk&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      min-height: 100svh;
+      display: grid; place-content: center; justify-items: center;
+      gap: 1.2rem; text-align: center; padding: 2rem;
+      background: radial-gradient(70rem 50rem at 80% -10%, #6a6a8e 0%, transparent 55%), #575775;
+      color: #fff;
+      font-family: "Fredoka", "Padauk", system-ui, sans-serif;
+    }
+    img { width: min(56vw, 240px); animation: floaty 4.5s ease-in-out infinite; }
+    @keyframes floaty { 0%,100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-12px) rotate(1.5deg); } }
+    h1 { font-size: clamp(1.7rem, 5vw, 2.6rem); font-weight: 600; }
+    p { color: #d9d8ea; max-width: 34ch; line-height: 1.6; font-size: 1.05rem; }
+    a {
+      margin-top: .6rem; display: inline-block;
+      background: #f6a04d; color: #3a2410;
+      text-decoration: none; font-weight: 600; font-size: 1.05rem;
+      padding: .8em 1.8em; border-radius: 999px;
+      transition: transform .45s cubic-bezier(.34,1.56,.64,1), background .3s;
+    }
+    a:hover { transform: translateY(-4px) scale(1.05); background: #e07f2a; color: #fff; }
+    @media (prefers-reduced-motion: reduce) { img { animation: none; } }
+  </style>
+</head>
+<body>
+  <img src="/assets/logo/logo-white.png" alt="ဆက်လျှောက် — Keep Moving On logo">
+  <h1>404 — lost the path?</h1>
+  <p>No worries. Every wrong turn is still a step. <span lang="my">ဆက်လျှောက်</span> — keep walking, we’ll get you home.</p>
+  <a href="/">⇽ Back to the walk</a>
+</body>
+</html>
