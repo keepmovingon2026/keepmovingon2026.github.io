@@ -4,7 +4,7 @@ Portfolio & product showcase for **Keep Moving On** (ဆက်လျှောက
 a community brand from Bangkok walking beside friends in Myanmar who lost limbs to
 conflict-related injuries. Every pair of socks supports their next step.
 
-**Live site:** https://www.satshout.com (also https://keepmovingon2026.github.io)
+**Live site:** https://satshout.com (www redirects; also https://keepmovingon2026.github.io)
 
 - Pure HTML/CSS/JS — no build step, deployed straight from `main` via GitHub Pages
 - Bouncy minimalist design in the brand indigo `#575775` + sunrise orange

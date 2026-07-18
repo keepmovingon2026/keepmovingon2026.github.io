@@ -2,48 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://www.satshout.com/</loc>
+    <loc>https://satshout.com/</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://www.satshout.com/og.jpg</image:loc>
+      <image:loc>https://satshout.com/og.jpg</image:loc>
       <image:title>Keep Moving On — ဆက်လျှောက် sock collection</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://www.satshout.com/assets/logo/logo-card.jpg</image:loc>
+      <image:loc>https://satshout.com/assets/logo/logo-card.jpg</image:loc>
       <image:title>Keep Moving On — ဆက်လျှောက် logo</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://www.satshout.com/assets/products/shorty-white.jpg</image:loc>
+      <image:loc>https://satshout.com/assets/products/shorty-white.jpg</image:loc>
       <image:title>Premium Shorty sock</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://www.satshout.com/assets/products/economy-white.jpg</image:loc>
+      <image:loc>https://satshout.com/assets/products/economy-white.jpg</image:loc>
       <image:title>Economy sock</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://www.satshout.com/assets/products/micro-crew.jpg</image:loc>
+      <image:loc>https://satshout.com/assets/products/micro-crew.jpg</image:loc>
       <image:title>Micro Crew sock</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://www.satshout.com/assets/products/midcalf-crew.jpg</image:loc>
+      <image:loc>https://satshout.com/assets/products/midcalf-crew.jpg</image:loc>
       <image:title>Mid-Calf Crew sock</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://www.satshout.com/assets/products/kids-flatlay.jpg</image:loc>
+      <image:loc>https://satshout.com/assets/products/kids-flatlay.jpg</image:loc>
       <image:title>Premium Kid's sock with anti-slip sole</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://www.satshout.com/assets/products/tee-mockup.jpg</image:loc>
+      <image:loc>https://satshout.com/assets/products/tee-mockup.jpg</image:loc>
       <image:title>Keep Moving On logo t-shirt</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://www.satshout.com/assets/moments/red-portrait.jpg</image:loc>
+      <image:loc>https://satshout.com/assets/moments/red-portrait.jpg</image:loc>
       <image:title>Keep Moving On community — walking together</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://www.satshout.com/assets/moments/leap.jpg</image:loc>
+      <image:loc>https://satshout.com/assets/moments/leap.jpg</image:loc>
       <image:title>Keep Moving On socks on the move</image:title>
     </image:image>
   </url>
